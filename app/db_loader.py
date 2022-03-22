@@ -41,10 +41,11 @@ def load_data():
 
 def query(filters=None):
     with db.cursor(pymysql.cursors.DictCursor) as c:
-        if "id" in filters.keys():
-            c.execute(f"SELECT * FROM data WHERE id = '{filters['id']}'")
-        elif "time" in filters.keys():
-            c.execute(f"SELECT * FROM data WHERE read_time = '{filters['time']}'")
+        if filters:                
+            if "id" in filters.keys():
+                c.execute(f"SELECT * FROM data WHERE id = '{filters['id']}'")
+            elif "time" in filters.keys():
+                c.execute(f"SELECT * FROM data WHERE read_time = '{filters['time']}'")
         else:
             c.execute("SELECT * FROM data LIMIT 50")
         result = c.fetchall()

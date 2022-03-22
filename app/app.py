@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request
 from db_loader import load_data, query, home_query
 
@@ -20,7 +21,7 @@ def query_data():
         data = query(filters)
     else:
         data = query()
-    return {"a": data}
+    return {"a": json.loads(data)}
 
 if __name__ == "__main__":
 	app.run(debug=True,host="0.0.0.0")
