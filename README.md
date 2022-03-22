@@ -6,4 +6,4 @@
 3. `docker-compose up`
 4. Open localhost:5000/load to load the DB
 5. Open localhost:5000/query to grab some data
-6. Append an "id" or "param" to the /query endpoint from the available data
+6. Append an "id" or "param" to the /query endpoint from the available data (localhost:5000/query?id="")
